@@ -47,7 +47,7 @@ define(['zepto','mustache'],function(undef,Mustache){
             callback.count=callback.count||0;
             callback.count++;
 
-            if(callback.count==pids.length){
+            if(callback.count==pageConf.length){
 
                 render();
             }

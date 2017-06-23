@@ -6,7 +6,7 @@ define(['zepto','mustache'],function(undef,Mustache){
     };
     var $list,tpl;
         getData=function(pid,fn){
-            $.getJSON('/admin/page/getdetailpv?pid='+pid+'&TimezoneOffset=-480',function(r){
+            $.getJSON('/admin/page/getdetailpv?pid='+pid+'&days=1&TimezoneOffset=-480',function(r){
                 fn(r && r.data,pid)
             })
         },

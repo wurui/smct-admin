@@ -1,4 +1,4 @@
-define(['zepto','mustache'],function(undef,Mustache){
+define(['zepto','mustache','oxjs'],function(undef,Mustache,OXJS){
 
     var timeKey=function(date){
         date =date ||new Date();
@@ -7,6 +7,9 @@ define(['zepto','mustache'],function(undef,Mustache){
     var $list,tpl;
         getData=function(pid,fn){
             $.getJSON('/admin/page/getdetailpv?pid='+pid+'&days=1&TimezoneOffset=-480',function(r){
+                if(r.code==-1){
+                    return OXJS.gotoLogin()
+                }
                 fn(r && r.data,pid)
             })
         },

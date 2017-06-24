@@ -63,6 +63,7 @@ define(['zepto', 'mustache', 'oxjs'], function (undef, Mustache, OXJS) {
             for (var i = 0, n; n = pageConf[i++];) {
                 pids.push(n.pid);
             }
+            callback.count=0;
             for (var i = 0, pid; pid = pids[i++];) {
                 getData(pid, callback)
             }

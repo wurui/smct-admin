@@ -29,8 +29,17 @@ define(['zepto', 'mustache', 'oxjs'], function (undef, Mustache, OXJS) {
         pageData = {},
         render = function () {
             for (var i = 0, n; n = pageConf[i++];) {
-                var data = pageData[n.pid] || {};
-                n.data = [];
+                var data = pageData[n.pid] || {},
+                    now=new Date(),
+                    todayKey=timeKey(now),
+                    yesterdayKey=timeKey(new Date(now-24*3600*1000)),
+                    todaydata=data[todayKey]||{pv:0,uv:0},
+                    yesterdayData=data[yesterdayKey]||{pv:0,uv:0}
+
+                todaydata.label='今日'
+                yesterdayData.label='昨日'
+                n.data = [todaydata,yesterdayData];
+                /*
                 for (var k in data) {
                     n.data.push({
                         uv: data[k].uv,
@@ -41,6 +50,7 @@ define(['zepto', 'mustache', 'oxjs'], function (undef, Mustache, OXJS) {
                 n.data.sort(function (a, b) {
                     return a.label > b.label ? -1 : 1
                 });
+                */
             }
             pageConf.time=(new Date).toLocaleString()
             $list.html(Mustache.render(tpl, pageConf))

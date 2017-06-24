@@ -23,6 +23,9 @@
                     </tbody>
                 </table>
             </div>
+            <div>
+                <button class="J_refresh">刷新</button>
+            </div>
             <script type="text/tpl" class="J_tpl"><![CDATA[
                 <table width="100%" cellpadding="0" cellspacing="0">
                     <tbody>
@@ -42,6 +45,7 @@
                         {{/.}}
                     </tbody>
                 </table>
+                <p class="time">{{time}}</p>
                 ]]>
             </script>
 

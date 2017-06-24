@@ -31,3 +31,8 @@
   border: solid 1px #eee;
   border-radius: 8px;
 }
+.oxmod-smct-admin .time {
+  text-align: center;
+  color: #999;
+  padding: 10px;
+}
